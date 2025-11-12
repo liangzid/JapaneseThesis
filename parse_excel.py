@@ -23,12 +23,18 @@ def run_translate2Chinese():
 
     text_list = df['合并内容'].dropna().tolist()
     # print(text_list[:5])
-    temp_ls=text_list[:20]
+    temp_ls=text_list[:]
+    print("Overall Length: ", len(temp_ls))
     translated_ls=[]
     for jp_text in tqdm(temp_ls,desc="Translation Procedure:"):
-        code_after_trans=LLM_trans(jp_text)
+        try:
+            code_after_trans=LLM_trans(jp_text)
+        except Exception as e:
+            print("A failed Sample Occured.")
+            code_after_trans="Failed to Translate."
+            
         translated_ls.append(code_after_trans)
-        time.sleep(0.5)
+        time.sleep(0.3)
 
     assert len(temp_ls)==len(translated_ls)
     # Export to excel.
