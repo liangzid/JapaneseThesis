@@ -19,7 +19,9 @@ from API import LLM_trans
 
 
 def run_translate2Chinese():
-    df = pd.read_excel('BCCWJ1313.xlsx', sheet_name='bccwj1313')
+    # df = pd.read_excel('BCCWJ1313.xlsx', sheet_name='bccwj1313')
+    # df = pd.read_excel('CHJ376--2.xlsx', sheet_name='chj376')
+    df = pd.read_excel('SHC508--2.xlsx', sheet_name='shc508')
 
     text_list = df['合并内容'].dropna().tolist()
     # print(text_list[:5])
