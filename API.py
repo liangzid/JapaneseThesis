@@ -41,8 +41,11 @@ def LLM_trans(user_input):
     return one_time_LLM(TEXT_TRANS, user_input)
 
 
-def LLM_V_analysis(user_input):
-    prompt=TEXT_VV_JAN
+def LLM_V_analysis(user_input, version="v1"):
+    if version=="v1":
+        prompt=TEXT_VV_JAN
+    else:
+        prompt=TEXT_VV_V2_JAN
     client = OpenAI(
         api_key=API_KEY, # 
         base_url="https://api.moonshot.cn/v1",
