@@ -49,6 +49,34 @@ def run():
 
             code_after_analysis=json.loads(code_after_analysis)
 
+            # Do error check:
+            if "前項動詞" not in code_after_analysis:
+                code_after_analysis["前項動詞"]={
+                    "result":"Failed.",
+                    "reason":"Failed.",
+                    }
+            elif "result" in code_after_analysis["前項動詞"]:
+            
+            if "語彙素" not in code_after_analysis:
+                code_after_analysis["語彙素"]={
+                    "result":"Failed.",
+                    "reason":"Failed.",
+                    }
+            if "自他性判断" not in code_after_analysis:
+                code_after_analysis["自他性判断"]={
+                    "result1":"Failed.",
+                    "result2":"Failed.",
+                    "reason":"Failed.",
+                    }
+            if "格助詞判断" not in code_after_analysis:
+                code_after_analysis["格助詞判断"]={
+                    "result":"Failed.",
+                    "description": "Failed",
+                    "reason":"Failed.",
+                    }
+
+                
+
         except Exception as e:
             print("A failed Sample Occured.")
             code_after_analysis={
