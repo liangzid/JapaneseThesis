@@ -55,30 +55,54 @@ def run():
                     "result":"Failed.",
                     "reason":"Failed.",
                     }
-            elif "result" in code_after_analysis["前項動詞"]:
+            else:
+                if "result" not in code_after_analysis["前項動詞"]:
+                    code_after_analysis["前項動詞"]["result"]="Failed"
+                if "reason" not in code_after_analysis["前項動詞"]:
+                    code_after_analysis["前項動詞"]["reason"]="Failed"
             
             if "語彙素" not in code_after_analysis:
                 code_after_analysis["語彙素"]={
                     "result":"Failed.",
                     "reason":"Failed.",
                     }
+            else:
+                if "result" not in code_after_analysis["語彙素"]:
+                    code_after_analysis["語彙素"]["result"]="Failed"
+                if "reason" not in code_after_analysis["前項動詞"]:
+                    code_after_analysis["語彙素"]["reason"]="Failed"
+                
             if "自他性判断" not in code_after_analysis:
                 code_after_analysis["自他性判断"]={
                     "result1":"Failed.",
                     "result2":"Failed.",
                     "reason":"Failed.",
                     }
+            else:
+                if "result1" not in code_after_analysis["自他性判断"]:
+                    code_after_analysis["自他性判断"]["result1"]="Failed"
+                if "result2" not in code_after_analysis["自他性判断"]:
+                    code_after_analysis["自他性判断"]["result2"]="Failed"
+                if "reason" not in code_after_analysis["自他性判断"]:
+                    code_after_analysis["自他性判断"]["reason"]="Failed"
+                
             if "格助詞判断" not in code_after_analysis:
                 code_after_analysis["格助詞判断"]={
                     "result":"Failed.",
                     "description": "Failed",
                     "reason":"Failed.",
                     }
-
-                
+            else:
+                if "result" not in code_after_analysis["格助詞判断"]:
+                    code_after_analysis["格助詞判断"]["result"]="Failed"
+                if "description" not in code_after_analysis["格助詞判断"]:
+                    code_after_analysis["格助詞判断"]["description"]="Failed"
+                if "reason" not in code_after_analysis["格助詞判断"]:
+                    code_after_analysis["格助詞判断"]["reason"]="Failed"
 
         except Exception as e:
             print("A failed Sample Occured.")
+            print("Error:", e)
             code_after_analysis={
             "前項動詞":{
                 "result":"Failed.",
