@@ -116,19 +116,44 @@ def run():
     #     '格助词判断-结果': [x["格助词判断"]["result"] for x in analysis_ls],
     #     '格助词判断-原因': [x["格助词判断"]["reason"] for x in analysis_ls],
     # })
-    df = pd.DataFrame({
-        'Japanese': temp_ls,
-        '前项动词-结果': [x["前項動詞"]["result"] for x in analysis_ls],
-        '前项动词-原因': [x["前項動詞"]["reason"] for x in analysis_ls],
-        '词汇素-结果': [x["語彙素"]["result"] for x in analysis_ls],
-        '词汇素-原因': [x["語彙素"]["reason"] for x in analysis_ls],
-        '自他性判断-结果1': [x["自他性判断"]["result1"] for x in analysis_ls],
-        '自他性判断-结果2': [x["自他性判断"]["result2"] for x in analysis_ls],
-        '自他性判断-原因': [x["自他性判断"]["reason"] for x in analysis_ls],
-        '格助词判断-结果': [x["格助詞判断"]["result"] for x in analysis_ls],
-        '格助词判断-描述': [x["格助詞判断"]["description"] for x in analysis_ls],
-        '格助词判断-原因': [x["格助詞判断"]["reason"] for x in analysis_ls],
-    })
+
+    try:
+        res_dict={
+            'Japanese': temp_ls,
+            '前项动词-结果': [x["前項動詞"]["result"] for x in analysis_ls],
+            '前项动词-原因': [x["前項動詞"]["reason"] for x in analysis_ls],
+            '词汇素-结果': [x["語彙素"]["result"] for x in analysis_ls],
+            '词汇素-原因': [x["語彙素"]["reason"] for x in analysis_ls],
+            '自他性判断-结果1': [x["自他性判断"]["result1"] for x in analysis_ls],
+            '自他性判断-结果2': [x["自他性判断"]["result2"] for x in analysis_ls],
+            '自他性判断-原因': [x["自他性判断"]["reason"] for x in analysis_ls],
+            }
+    except Exception as e:
+        print(e)
+        res_dict={
+            'Japanese': temp_ls,
+            '前项动词-结果': [x["前項動詞"]["result"] for x in analysis_ls],
+            '前项动词-原因': [x["前項動詞"]["reason"] for x in analysis_ls],
+            '自他性判断-结果1': [x["自他性判断"]["result1"] for x in analysis_ls],
+            '自他性判断-结果2': [x["自他性判断"]["result2"] for x in analysis_ls],
+            '自他性判断-原因': [x["自他性判断"]["reason"] for x in analysis_ls],
+            }
+    df=pd.DataFrame(res_dict)
+
+
+    # df = pd.DataFrame({
+    #     'Japanese': temp_ls,
+    #     '前项动词-结果': [x["前項動詞"]["result"] for x in analysis_ls],
+    #     '前项动词-原因': [x["前項動詞"]["reason"] for x in analysis_ls],
+    #     '词汇素-结果': [x["語彙素"]["result"] for x in analysis_ls],
+    #     '词汇素-原因': [x["語彙素"]["reason"] for x in analysis_ls],
+    #     '自他性判断-结果1': [x["自他性判断"]["result1"] for x in analysis_ls],
+    #     '自他性判断-结果2': [x["自他性判断"]["result2"] for x in analysis_ls],
+    #     '自他性判断-原因': [x["自他性判断"]["reason"] for x in analysis_ls],
+    #     # '格助词判断-结果': [x["格助詞判断"]["result"] for x in analysis_ls],
+    #     # '格助词判断-描述': [x["格助詞判断"]["description"] for x in analysis_ls],
+    #     # '格助词判断-原因': [x["格助詞判断"]["reason"] for x in analysis_ls],
+    # })
 
     df.to_excel(f'AnalysisV2-{len(temp_ls)}.xlsx', index=False) 
     print("Export DONE.")
