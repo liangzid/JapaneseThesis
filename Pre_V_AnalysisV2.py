@@ -30,9 +30,9 @@ from API import LLM_V_analysis
 """
 
 def run():
-    # df = pd.read_excel('./data_old/BCCWJ1313--2.xlsx', sheet_name='bccwj1313')
+    df = pd.read_excel('./data_old/BCCWJ1313--2.xlsx', sheet_name='bccwj1313')
     # df = pd.read_excel('./data_old/CHJ376--2.xlsx', sheet_name='chj376')
-    df = pd.read_excel('./data_old/SHC508--2.xlsx', sheet_name='shc508')
+    # df = pd.read_excel('./data_old/SHC508--2.xlsx', sheet_name='shc508')
 
     text_list = df['合并内容'].dropna().tolist()
     # print(text_list[:20])
