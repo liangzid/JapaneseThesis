@@ -11,6 +11,8 @@ dependencies = [
     "openpyxl>=3.1.5",
     "pandas>=2.3.3",
     "regex>=2025.11.3",
+    "pyknp>=0.6.1",
     "seaborn>=0.13.2",
+    "setuptools>=80.9.0",
     "tqdm>=4.67.1",
 ]
